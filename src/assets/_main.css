@@ -1,0 +1,31 @@
+main {
+    padding: 20px;
+    background-color: #141414;
+    width: 100%;
+    max-width: 1920px;
+}
+
+.movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+.movie {
+    width: calc(100% / 4);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.movie h2 {
+    margin-bottom: 10px;
+}
+
+.movie p {
+    margin: 5px 0;
+}
