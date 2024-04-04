@@ -51,4 +51,5 @@ export default{
 
 <style>
 @import url('./style.css');
+@import url('/node_modules/flag-icon-css/css/flag-icons.min.css');
 </style>

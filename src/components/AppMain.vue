@@ -21,6 +21,7 @@ export default {
                 <div class="d-wrap">
                     <div v-for="(item, index) in media" :key="index" class="movie">
                         <img :src="getImageUrl(item.poster_path)" :alt="item.title">
+                        <img :src="item.flag" :alt="item.original_language" class="flag">
                         <h2>{{ item.title }}</h2>
                         <p>Titolo Originale: {{ item.original_title || item.original_name }}</p>
                         <p>Lingua: {{ item.original_language }}</p>

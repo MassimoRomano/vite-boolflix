@@ -21,6 +21,7 @@ main {
     margin-bottom: 10px;
     box-sizing: border-box;
     color: white;
+    position: relative;
 }
 
 .movie h2 {
@@ -39,4 +40,12 @@ main {
     width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+.flag {
+    position: absolute;
+    bottom: 30px;
+    left: 230px;
+    width: 24px; 
+    height: auto;
 }
