@@ -2,7 +2,7 @@
 export default {
     name: 'AppMain',
     props: {
-        movies: Array,
+        media: Array,
         errorMessage: String
     },
     methods: {
@@ -19,12 +19,12 @@ export default {
             <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
             <div v-else>
                 <div class="d-wrap">
-                    <div v-for="movie in movies" :key="movie.id" class="movie">
-                        <img :src="getImageUrl(movie.poster_path)" :alt="movie.title">
-                        <h2>{{ movie.title }}</h2>
-                        <p>Titolo Originale: {{ movie.original_title }}</p>
-                        <p>Lingua: {{ movie.original_language }}</p>
-                        <p>Voto: {{ movie.vote_average }}</p>
+                    <div v-for="(item, index) in media" :key="index" class="movie">
+                        <img :src="getImageUrl(item.poster_path)" :alt="item.title">
+                        <h2>{{ item.title }}</h2>
+                        <p>Titolo Originale: {{ item.original_title || item.original_name }}</p>
+                        <p>Lingua: {{ item.original_language }}</p>
+                        <p>Voto: {{ item.vote_average }}</p>
                     </div>
                 </div>
             </div>

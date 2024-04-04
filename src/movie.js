@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
       api_key: API_KEY,
       language: 'it_IT'
     }
-  });
+});
 
 const searchMovies = async (searchQuery) => {
   try {

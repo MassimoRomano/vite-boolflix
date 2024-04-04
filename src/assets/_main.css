@@ -10,7 +10,7 @@ main {
 .d-wrap{
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 

@@ -12,7 +12,8 @@
 }
 
 .logo h1 {
-  margin: 0;
+  margin: 0 290px 0 0;
+  color: red;
 }
 
 .search {
@@ -46,7 +47,7 @@ button {
 }
 
 button:hover {
-  background-color: #ff0f24;
+  background-color: #4b0101;
 }
 
 .spacer {

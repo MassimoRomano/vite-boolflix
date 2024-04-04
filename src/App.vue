@@ -2,7 +2,8 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
-import { searchMovies } from './state.js'
+import { searchMovies } from './movie.js';
+import { searchSeries } from './serie.js';
 
 
 export default{
@@ -13,26 +14,28 @@ export default{
   },
   data() {
     return {
-      movies: [],
+      media: [],
       errorMessage: ''
     };
   },
   methods: {
-    async searchMovies(searchQuery) {
+    async searchMedia(searchQuery) {
       this.errorMessage = '';
 
       if (searchQuery.trim() === '') {
-        this.errorMessage = 'Inserisci il nome di un film da cercare.';
+        this.errorMessage = 'Inserisci il nome di un film o di una serie TV da cercare.';
         return;
       }
 
       try {
-        const { movies, errorMessage } = await searchMovies(searchQuery.trim());
-        this.movies = movies;
-        this.errorMessage = errorMessage;
+        const movieResponse = await searchMovies(searchQuery.trim());
+        const seriesResponse = await searchSeries(searchQuery.trim());
+
+        this.media = [...movieResponse.movies, ...seriesResponse.series];
+        this.errorMessage = movieResponse.errorMessage || seriesResponse.errorMessage || '';
       } catch (error) {
-        console.error('Si è verificato un errore durante la ricerca dei film:', error);
-        this.errorMessage = 'Si è verificato un errore durante la ricerca dei film. Si prega di riprovare più tardi.';
+        console.error('Si è verificato un errore durante la ricerca:', error);
+        this.errorMessage = 'Si è verificato un errore durante la ricerca. Si prega di riprovare più tardi.';
       }
     }
   }
@@ -41,8 +44,8 @@ export default{
 </script>
 
 <template>
-  <AppHeader @search="searchMovies" />
-  <AppMain :movies="movies" :errorMessage="errorMessage" />
+  <AppHeader @search="searchMedia" />
+  <AppMain :media="media" :errorMessage="errorMessage" />
   <AppFooter />
 </template>
 

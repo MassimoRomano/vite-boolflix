@@ -7,8 +7,12 @@ export default {
         };
     },
     methods: {
-        searchMovies() {
-            this.$emit('search', this.searchQuery);
+        searchMedia() {
+            if (this.searchQuery.trim() === '') {
+                this.$emit('search', '');
+            } else {
+                this.$emit('search', this.searchQuery);
+            }
         }
     }
 };
@@ -18,12 +22,12 @@ export default {
    <header class="header">
     <div class="container">
       <div class="logo">
-        <h1>Movie Search</h1>
+        <h1>BOOLFLIX</h1>
       </div>
       <div class="search">
         <div id="search-container">
           <input type="text" v-model="searchQuery" placeholder="Cerca un film...">
-          <button @click="searchMovies">Cerca</button>
+          <button @click="searchMedia">Cerca</button>
         </div>
       </div>
       <div class="spacer"></div>
