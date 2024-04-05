@@ -43,9 +43,11 @@ export default {
 
 
 <template>
-  <AppHeader @search="searchMedia" />
-  <AppMain :media="media" :errorMessage="errorMessage" />
-  <AppFooter />
+  <body>
+    <AppHeader @search="searchMedia" />
+    <AppMain :media="media" :errorMessage="errorMessage" />
+    <AppFooter />
+  </body>
 </template>
 
 <style>
