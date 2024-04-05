@@ -2,13 +2,14 @@
   background-color: #141414;
   color: #ffffff;
   height: 7vh;
+  padding: 10px 0;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
 }
 
 .logo h1 {
