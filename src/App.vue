@@ -5,8 +5,7 @@ import AppFooter from './components/AppFooter.vue';
 import { searchMovies } from './movie.js';
 import { searchSeries } from './serie.js';
 
-
-export default{
+export default {
   components: {
     AppHeader,
     AppMain,
@@ -40,8 +39,8 @@ export default{
     }
   }
 };
-
 </script>
+
 
 <template>
   <AppHeader @search="searchMedia" />
@@ -51,5 +50,4 @@ export default{
 
 <style>
 @import url('./style.css');
-@import url('/node_modules/flag-icon-css/css/flag-icons.min.css');
 </style>
